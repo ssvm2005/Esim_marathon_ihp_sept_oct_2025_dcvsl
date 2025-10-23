@@ -1,0 +1,136 @@
+*DCVSL SUM  Without IHP-OPEN-PDK-sg13g2
+
+.title kicad schematic
+.include PMOS-180nm.lib
+.include NMOS-180nm.lib
+m5 net-_m1-pad1_ bbar net-_m11-pad3_ gnd CMOSN W=100u L=100u M=1
+m6 net-_m10-pad2_ abar net-_m11-pad1_ gnd CMOSN W=100u L=100u M=1
+v1 net-_m10-pad3_ gnd dc 1.8
+m4 net-_m10-pad2_ net-_m10-pad1_ net-_m10-pad3_ net-_m10-pad3_ CMOSP W=100u L=100u M=1
+m10 net-_m10-pad1_ net-_m10-pad2_ net-_m10-pad3_ net-_m10-pad3_ CMOSP W=100u L=100u M=1
+m11 net-_m11-pad1_ b net-_m11-pad3_ gnd CMOSN W=100u L=100u M=1
+m12 net-_m10-pad1_ a net-_m11-pad1_ gnd CMOSN W=100u L=100u M=1
+cout1 net-_m10-pad1_ gnd 0.01u
+m2 net-_m10-pad2_ a net-_m1-pad1_ gnd CMOSN W=100u L=100u M=1
+m1 net-_m1-pad1_ b net-_m1-pad3_ gnd CMOSN W=100u L=100u M=1
+m8 net-_m10-pad1_ abar net-_m1-pad1_ gnd CMOSN W=100u L=100u M=1
+m7 net-_m11-pad1_ bbar net-_m1-pad3_ gnd CMOSN W=100u L=100u M=1
+v3 b gnd pulse(1.8 0 0 1n 1n 20m 40m)
+v6 bbar gnd pulse(0 1.8 0 1n 1n 20m 40m)
+v5 abar gnd pulse(0 1.8 0 1n 1n 40m 80m)
+v2 a gnd pulse(1.8 0 0 1n 1n 40m 80m)
+v4 c gnd pulse(1.8 0 0 1n 1n 10m 20m)
+v7 cbar gnd pulse(0 1.8 0 1n 1n 10m 20m)
+m3 net-_m1-pad3_ c gnd gnd CMOSN W=100u L=100u M=1
+m9 net-_m11-pad3_ cbar gnd gnd CMOSN W=100u L=100u M=1
+.tran 10e-03 85e-03 0e-03
+* Control Statements
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end
+
+*DCVSL SUM  With IHP-OPEN-PDK-sg13g2
+
+.title kicad schematic
+.lib C:/ihp/IHP-Open-PDK/ihp-sg13g2/libs.tech/ngspice/models/cornerMOShv.lib mos_tt  *add your respective path to include model file
+xm5 net-_m1-pad1_ bbar net-_m11-pad3_ gnd sg13_hv_nmos
+xm6 net-_m10-pad2_ abar net-_m11-pad1_ gnd sg13_hv_nmos 
+xm4 net-_m10-pad2_ net-_m10-pad1_ net-_m10-pad3_ net-_m10-pad3_ sg13_hv_pmos 
+xm10 net-_m10-pad1_ net-_m10-pad2_ net-_m10-pad3_ net-_m10-pad3_ sg13_hv_pmos 
+xm11 net-_m11-pad1_ b net-_m11-pad3_ gnd sg13_hv_nmos 
+xm12 net-_m10-pad1_ a net-_m11-pad1_ gnd sg13_hv_nmos 
+xm2 net-_m10-pad2_ a net-_m1-pad1_ gnd sg13_hv_nmos 
+xm1 net-_m1-pad1_ b net-_m1-pad3_ gnd sg13_hv_nmos 
+xm8 net-_m10-pad1_ abar net-_m1-pad1_ gnd sg13_hv_nmos 
+xm7 net-_m11-pad1_ bbar net-_m1-pad3_ gnd sg13_hv_nmos 
+xm3 net-_m1-pad3_ c gnd gnd sg13_hv_nmos
+xm9 net-_m11-pad3_ cbar gnd gnd sg13_hv_nmos 
+cout1 net-_m10-pad1_ gnd 0.01u
+v1 net-_m10-pad3_ gnd dc 3.3
+v3 b gnd pulse(3.3 0 0 1n 1n 20m 40m)
+v6 bbar gnd pulse(0 3.3 0 1n 1n 20m 40m)
+v5 abar gnd pulse(0 3.3 0 1n 1n 40m 80m)
+v2 a gnd pulse(3.3 0 0 1n 1n 40m 80m)
+v4 c gnd pulse(3.3 0 0 1n 1n 10m 20m)
+v7 cbar gnd pulse(0 3.3 0 1n 1n 10m 20m)
+
+.tran 10e-03 85e-03 0e-03
+* Control Statements
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end
+
+*DCVSL CARRY Without IHP-OPEN-PDK-sg13g2
+  
+.title kicad schematic
+.include NMOS-180nm.lib
+.include PMOS-180nm.lib
+v1 net-_m4-pad3_ gnd dc 1.8
+m4 net-_m2-pad1_ carry net-_m4-pad3_ net-_m4-pad3_ CMOSP W=100u L=100u M=1
+m7 carry net-_m2-pad1_ net-_m4-pad3_ net-_m4-pad3_ CMOSP W=100u L=100u M=1
+m11 carry bbar net-_m11-pad3_ gnd CMOSN W=100u L=100u M=1
+m8 carry abar net-_m10-pad1_ gnd CMOSN W=100u L=100u M=1
+c1 carry gnd 0.01u
+v3 b gnd pulse(1.8 0 0 1n 1n 20m 40m)
+v5 bbar gnd pulse(0 1.8 0 1n 1n 20m 40m)
+m12 net-_m11-pad3_ cbar gnd gnd CMOSN W=100u L=100u M=1
+v7 cbar gnd pulse(0 1.8 0 1n 1n 10m 20m)
+v6 c gnd pulse(1.8 0 0 1n 1n 10m 20m)
+v2 a gnd pulse(1.8 0 0 1n 1n 40m 80m)
+v4 abar gnd pulse(0 1.8 0 1n 1n 40m 80m)
+m2 net-_m2-pad1_ b net-_m1-pad1_ gnd CMOSN W=100u L=100u M=1
+m5 net-_m2-pad1_ a net-_m3-pad1_ gnd CMOSN W=100u L=100u M=1
+m3 net-_m3-pad1_ c gnd gnd CMOSN W=100u L=100u M=1
+m6 net-_m3-pad1_ b gnd gnd CMOSN W=100u L=100u M=1
+m1 net-_m1-pad1_ c gnd gnd CMOSN W=100u L=100u M=1
+m10 net-_m10-pad1_ cbar gnd gnd CMOSN W=100u L=100u M=1
+m9 net-_m10-pad1_ bbar gnd gnd CMOSN W=100u L=100u M=1
+.tran 10e-03 85e-03 0e-03
+* Control Statements
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end
+
+*DCVSL CARRY With IHP-OPEN-PDK-sg13g2
+.title kicad schematic
+.lib C:/ihp/IHP-Open-PDK/ihp-sg13g2/libs.tech/ngspice/models/cornerMOShv.lib mos_tt
+
+xm4 net-_m2-pad1_ carry net-_m4-pad3_ net-_m4-pad3_ sg13_hv_pmos 
+xm7 carry net-_m2-pad1_ net-_m4-pad3_ net-_m4-pad3_ sg13_hv_pmos 
+xm11 carry bbar net-_m11-pad3_ gnd sg13_hv_nmos
+xm8 carry abar net-_m10-pad1_ gnd sg13_hv_nmos
+xm2 net-_m2-pad1_ b net-_m1-pad1_ gnd sg13_hv_nmos
+xm5 net-_m2-pad1_ a net-_m3-pad1_ gnd sg13_hv_nmos
+xm3 net-_m3-pad1_ c gnd gnd sg13_hv_nmos
+xm6 net-_m3-pad1_ b gnd gnd sg13_hv_nmos
+xm1 net-_m1-pad1_ c gnd gnd sg13_hv_nmos
+xm10 net-_m10-pad1_ cbar gnd gnd sg13_hv_nmos
+xm9 net-_m10-pad1_ bbar gnd gnd sg13_hv_nmos
+xm12 net-_m11-pad3_ cbar gnd gnd sg13_hv_nmos
+
+c1 carry gnd 0.01u
+v1 net-_m4-pad3_ gnd dc 1.8
+v3 b gnd pulse(1.8 0 0 1n 1n 20m 40m)
+v5 bbar gnd pulse(0 1.8 0 1n 1n 20m 40m)
+v7 cbar gnd pulse(0 1.8 0 1n 1n 10m 20m)
+v6 c gnd pulse(1.8 0 0 1n 1n 10m 20m)
+v2 a gnd pulse(1.8 0 0 1n 1n 40m 80m)
+v4 abar gnd pulse(0 1.8 0 1n 1n 40m 80m)
+
+.tran 10e-03 85e-03 0e-03
+* Control Statements
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+.endc
+.end
