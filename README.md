@@ -46,6 +46,17 @@ Fig 7: Truth Table for the logic implemented
 
 References:
 https://www.researchgate.net/publication/311418018_A_Novel_1-Bit_Full_Adder_Design_Using_DCVSL_XORXNOR_Gate_and_Pass_Transistor_Multiplexers
+
 https://esim.fossee.in/home
+
 https://github.com/IHP-GmbH/IHP-Open-PDK/tree/main
+
 https://ngspice.sourceforge.io/download.html
+
+Hackathon Description:
+The eSim Marathon – Circuit Design & Simulation with IHP SG13G2 is a nationwide competition organised by FOSSEE (IIT Bombay) that invites participants to design and simulate analog, digital or mixed-signal circuits using the open-source EDA tool eSim and the open-source 130 nm BiCMOS PDK IHP Microelectronics SG13G2. The goal is to democratise VLSI design education and provide hands-on experience with real world PDKs and tools.  FOSSEE
+
+Participant Details:
+S S V Mridula,
+Pre-Final Year Student, B.Tech Electronics and Communication Engineering
+Vellore Institute of Technology, Chennai Campus
